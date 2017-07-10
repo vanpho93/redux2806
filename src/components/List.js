@@ -3,9 +3,9 @@ import Word from './Word';
 import WordFilter from './WordFilter';
 
 const defaultArrWords = [
-    { id: 1, en: 'action', vn: 'hành động', memorized: true, isShow: false },
+    { id: 1, en: 'action', vn: 'hành động', memorized: true, isShow: true },
     { id: 2, en: 'actor', vn: 'diễn viên', memorized: false, isShow: false },
-    { id: 3, en: 'activity', vn: 'hoạt động', memorized: true, isShow: false },
+    { id: 3, en: 'activity', vn: 'hoạt động', memorized: true, isShow: true },
     { id: 4, en: 'active', vn: 'chủ động', memorized: true, isShow: false },
     { id: 5, en: 'bath', vn: 'tắm', memorized: false, isShow: false },
     { id: 6, en: 'bedroom', vn: 'phòng ngủ', memorized: true, isShow: false },
@@ -31,7 +31,7 @@ export default class List extends Component {
         return (
             <div>
                 <WordFilter />
-                {this.state.arrWords.map(e => <Word key={e.id} en={e.en} vn={e.vn} />)}
+                {this.state.arrWords.map(e => <Word key={e.id} word={e} />)}
             </div>
         );
     }

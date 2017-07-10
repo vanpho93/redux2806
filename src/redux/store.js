@@ -1,3 +1,5 @@
+import { createStore } from 'redux';
+
 const defaultState = {
     arrWords: [
         { id: 1, en: 'action', vn: 'hành động', memorized: true, isShow: true },
@@ -17,3 +19,11 @@ const defaultState = {
     ],
     filterMode: 'SHOW_ALL'
 };
+
+const reducer = (state = defaultState, action) => {
+    return state;
+};
+
+const store = createStore(reducer);
+
+export default store;

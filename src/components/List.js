@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Word from './Word';
 import WordFilter from './WordFilter';
 
-export default class List extends Component {
+class List extends Component {
     render() {
         return (
             <div>
@@ -12,4 +13,8 @@ export default class List extends Component {
         );
     }
 }
+
+const mapStateToProps = (state) => ({ arrWords: state.arrWords });
+
+export default connect(mapStateToProps)(List);
 //https://vanpho93.github.io/data.json

@@ -17,10 +17,13 @@ const defaultState = {
         { id: 13, en: 'against', vn: 'phản đối', memorized: true, isShow: false },
         { id: 14, en: 'arrange', vn: 'sắp xếp', memorized: false, isShow: false }
     ],
-    filterMode: 'SHOW_ALL'
+    filterMode: 'MEMORIZED'
 };
 
 const reducer = (state = defaultState, action) => {
+    if (action.type === 'FILTER_SHOW_ALL') return { ...state, filterMode: 'SHOW_ALL' };
+    if (action.type === 'FILTER_SHOW_MEMORIZED') return { ...state, filterMode: 'MEMORIZED' };
+    if (action.type === 'FILTER_NEED_PRACTICE') return { ...state, filterMode: 'NEED_PRACTICE' };
     return state;
 };
 

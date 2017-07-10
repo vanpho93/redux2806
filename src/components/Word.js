@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actionCreators from '../redux/actionCreators';
 
-export default class Word extends Component {
+class Word extends Component {
     render() {
-        const { en, vn, memorized, isShow } = this.props.word;
+        const { en, vn, memorized, isShow, id } = this.props.word;
         const textDecoration = memorized ? 'line-through' : 'none';
         const meaning = isShow ? vn : '-------';
         return (
@@ -10,8 +12,10 @@ export default class Word extends Component {
                 <strong style={{ textDecoration }}>{en}</strong>
                 <p>{meaning}</p>
                 <button>Show</button>
-                <button>Memorized</button>
+                <button onClick={() => this.props.toggleMemorized(id)}>Memorized</button>
             </div>
         );
     }
 }
+
+export default connect(null, actionCreators)(Word);

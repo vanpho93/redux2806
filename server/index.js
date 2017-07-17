@@ -1,6 +1,4 @@
 const express = require('express');
-const cors = require('cors');
-
 // use it before all route definitions
 
 const Word = require('./Word');
@@ -15,6 +13,7 @@ app.listen(3000, () => console.log('Server is running'));
 app.get('/words', (req, res) => {
     Word.getAll()
     .then(words => {
+        res.setHeader('Access-Control-Allow-Origin', 'https://vanpho93.github.io');
         res.send(words);
     });
 });

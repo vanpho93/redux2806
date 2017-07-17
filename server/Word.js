@@ -18,11 +18,12 @@ class Word {
     }
 
     addNewWord() {
-
+        const sql = 'INSERT INTO public."Word"(en, vn, memorized, "isShow") VALUES ($1, $2, false, false)';
+        return queryDB(sql, [this.en, this.vn]);
     }
 
     toggleIsShow() {
-
+        
     }
 
     toggleIsMemorized() {
@@ -35,3 +36,9 @@ class Word {
 }
 
 module.exports = Word;
+
+const word = new Word(null, 'Sleep', 'Ngủ');
+word.addNewWord()
+.then(() => console.log('Thêm thành công'))
+.catch(() => console.log('Thêm thất bại'));
+

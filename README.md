@@ -1,2 +1,15 @@
-https://www.facebook.com/groups/khoaphamonline/
-https://www.facebook.com/groups/1882998995289498/
+INSERT INTO public."Word"(en, vn, memorized, "isShow")
+	VALUES    ('action', 'hành động', true, true ),
+    ('actor', 'diễn viên', false, false ),
+    ('activity', 'hoạt động', true, true ),
+    ('active', 'chủ động', true, false ),
+    ('bath', 'tắm', false, false ),
+    ('bedroom', 'phòng ngủ', true, false ),
+    ('yard', 'sân', false, false ),
+    ('yesterday', 'hôm qua', true, false ),
+    ('young', 'trẻ', true, false ),
+    ('zero', 'số 0', false, false ),
+    ('abandon', 'từ bỏ', true, false ),
+    ('above', 'ở trên', false, false ),
+    ('against', 'phản đối', true, false ),
+    ('arrange', 'sắp xếp', false, false );

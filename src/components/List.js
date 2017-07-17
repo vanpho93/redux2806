@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Word from './Word';
 import WordFilter from './WordFilter';
+import * as actionCreators from '../redux/actionCreators';
 
 class List extends Component {
+    componentDidMount() {
+        this.props.getAllWords();    
+    }
+
     render() {
         const { arrWords, filterMode } = this.props;
         const showArrWord = arrWords.filter(e => {
@@ -29,5 +34,5 @@ const mapStateToProps = (state) => ({
     error: state.error 
 });
 
-export default connect(mapStateToProps)(List);
+export default connect(mapStateToProps, actionCreators)(List);
 //https://vanpho93.github.io/data.json

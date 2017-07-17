@@ -5,9 +5,4 @@ const errorReducer = (state = null, action) => {
     return state;
 };
 
-module.exports = errorReducer;
-
-//Bat dau tai
-//Tai thanh cong
-//Tai that bai
-
+export default errorReducer;

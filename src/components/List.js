@@ -11,6 +11,8 @@ class List extends Component {
             if (filterMode === 'MEMORIZED') return e.memorized;
             return !e.memorized;
         });
+        if (this.props.isLoading) return <p>Loading</p>;
+        if (this.props.error) return <p>An error has occur</p>;
         return (
             <div>
                 <WordFilter />
@@ -22,7 +24,9 @@ class List extends Component {
 
 const mapStateToProps = (state) => ({ 
     arrWords: state.arrWords,
-    filterMode: state.filterMode 
+    filterMode: state.filterMode,
+    isLoading: state.isLoading,
+    error: state.error 
 });
 
 export default connect(mapStateToProps)(List);

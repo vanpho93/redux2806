@@ -8,8 +8,8 @@ module.exports = {
             {
                 loader: 'babel-loader',
                 exclude: /node_modules/
-            }
+            } 
         ]
     },
-    devtool: "cheap-eval-source-map"
+    devtool: 'source-map'
 };

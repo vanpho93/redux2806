@@ -4,14 +4,24 @@ import * as actionCreator from '../redux/actionCreators';
 
 class WordFilter extends Component {
     render() {
+        const { showAll, showMemorized, showNeedPractice, filterMode } = this.props;
+        const getDisable = (mode) => filterMode === mode;
         return (
             <div className="div-filter">
-                <button onClick={this.props.showAll}>Show All</button>
-                <button onClick={this.props.showMemorized}>Show Memorized</button>
-                <button onClick={this.props.showNeedPractice}>Show Need Practice</button>
+                <button onClick={showAll} disabled={getDisable('SHOW_ALL')}>
+                    Show All
+                </button>
+                <button onClick={showMemorized} disabled={getDisable('MEMORIZED')}>
+                    Show Memorized
+                </button>
+                <button onClick={showNeedPractice} disabled={getDisable('NEED_PRACTICE')}>
+                    Show Need Practice
+                </button>
             </div>
         );
     }
 }
 
-export default connect(null, actionCreator)(WordFilter);
+const mapStateToProps = state => ({ filterMode: state.filterMode });
+
+export default connect(mapStateToProps, actionCreator)(WordFilter);
